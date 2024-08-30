@@ -1,0 +1,18 @@
+{% extends 'hotel/base.html' %}
+
+{% block content %}
+    <h1>Available Rooms</h1>
+    <div class="row">
+        {% for room in rooms %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Room {{ room.room_number }}</h5>
+                        <p class="card-text">{{ room.get_room_type_display }} - ${{ room.price_per_night }}</p>
+                        <a href="{% url 'make_reservation' %}" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
